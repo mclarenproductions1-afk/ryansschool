@@ -2,258 +2,77 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Study Hub</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<title>This is a free website</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg: #fff;
-    --text: #111;
-    --muted: #888;
-    --border: #e5e5e5;
-    --card-bg: #fff;
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; }
   }
 
-  html { font-size: 16px; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  header {
-    padding: 24px 40px;
-    border-bottom: 1px solid var(--border);
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #0a0a0f;
     display: flex;
     align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
 
-  .logo {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: -0.2px;
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(120, 80, 255, 0.15), transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(255, 80, 200, 0.12), transparent 50%);
+    animation: drift 12s ease-in-out infinite alternate;
   }
 
-  main {
-    flex: 1;
-    padding: 48px 40px 80px;
-    max-width: 900px;
-    margin: 0 auto;
-    width: 100%;
+  @keyframes drift {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(2%, -2%) scale(1.05); }
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+  h1 {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: clamp(2rem, 8vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-align: center;
+    padding: 0 1rem;
+    background: linear-gradient(90deg,
+      #ff6ec4, #7873f5, #4ade80, #facc15, #ff6ec4);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 6s linear infinite;
+    position: relative;
+    z-index: 1;
   }
 
-  .app-card {
-    display: block;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 24px;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color 0.15s;
+  @keyframes shimmer {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
   }
 
-  .app-card:hover {
-    border-color: var(--text);
-  }
-
-  .card-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 8px;
-    letter-spacing: -0.1px;
-  }
-
-  .card-desc {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-
-  .card-link {
-    font-family: 'Inter', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    font-variant-numeric: tabular-nums;
-  }
-
-  footer {
-    padding: 20px 40px;
-    border-top: 1px solid var(--border);
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  .section-label {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin: 40px 0 12px;
-  }
-
-  .section-label:first-child {
-    margin-top: 0;
-  }
-
-  @media (max-width: 680px) {
-    header { padding: 20px; }
-    main { padding: 32px 20px 60px; }
-    footer { padding: 16px 20px; }
-    .grid { grid-template-columns: 1fr; }
+  h1::after {
+    content: "this is a free website";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    background-size: inherit;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: blur(20px);
+    opacity: 0.6;
+    z-index: -1;
   }
 </style>
 </head>
 <body>
-
-<header>
-  <div class="logo">Study Hub</div>
-</header>
-
-<main>
-
-  
-
-  <div class="section-label">Maths</div>
-  <div class="grid">
-
-    <a class="app-card" href="/maths">
-      <div class="card-title">Maths Advanced</div>
-      <div class="card-desc">Year 11 advanced maths practice test with worked solutions and instant feedback.</div>
-      <span class="card-link">Open →</span>
-    </a>
-
-    <a class="app-card" href="/quadratics">
-      <div class="card-title">Quadratics Crash Course</div>
-      <div class="card-desc">Interactive crash course on quadratics — factoring, the quadratic formula, graphing, and more.</div>
-      <span class="card-link">Open →</span>
-    </a>
-
-  </div>
-
-  <div class="section-label">Study</div>
-  <div class="grid">
-
-    <a class="app-card" href="/ass">
-      <div class="card-title">StudyDesk</div>
-      <div class="card-desc">Track assignments and upcoming tests. Mark tasks complete, filter by status, synced via GitHub.</div>
-      <span class="card-link">Open →</span>
-    </a>
-
-    <a class="app-card" href="/physics">
-      <div class="card-title">2D Vectors</div>
-      <div class="card-desc">Physics quiz covering components, resultants, river crossings, relative velocity, and more.</div>
-      <span class="card-link">Open →</span>
-    </a>
-
-  </div>
-
-  
-
-</main>
-
-<footer style="display:flex;align-items:center;justify-content:space-between">
-  <span>bigballzlord.online</span>
-  <a href="/admin" style="font-size:11px;color:var(--muted);text-decoration:none;opacity:0.4">admin</a>
-</footer>
-
-<script src="/admin/control.js"></script>
-<script>
-// Hide updates banner if already dismissed
-if (sessionStorage.getItem('hide-updates')) {
-  var b = document.getElementById('updates-banner');
-  if (b) b.style.display = 'none';
-}
-
-// Balance bar
-(function() {
-  function showBal() {
-    var disp = document.getElementById('bal-display');
-    var loginLink = document.getElementById('bal-login-link');
-    if (window.RYS && window.RYS.user()) {
-      disp.textContent = '$' + window.RYS.bal().toLocaleString();
-      if (loginLink) loginLink.style.display = 'none';
-    } else {
-      var raw = parseInt(localStorage.getItem('rys-bal') || '0', 10);
-      if (raw) {
-        disp.textContent = '$' + raw.toLocaleString();
-      } else {
-        disp.textContent = '—';
-        if (loginLink) loginLink.style.display = '';
-      }
-    }
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', showBal);
-  } else {
-    showBal();
-  }
-})();
-</script>
-<script>
-(function() {
-  const TOKEN = ["github_pat_11CASFLQI0", "mSMwrQorr6is_8w1PYxuskuOF567X3WQslSr67uzWaYNVODD8nx0icOqEJFVHH5I2dQXuhPy"].join("");
-  const API = "https://api.github.com/repos/mclarenproductions1-afk/RyansSITE/contents/poker/games/table.json";
-  const FRESH_STATE = {
-    status:"waiting", players:[null,null,null,null,null,null], queue:[],
-    handNum:0, dealer:0, phase:"waiting", deck:[], communityCards:[],
-    pot:0, sidePots:[], currentBet:0, minRaise:20, currentTurn:-1,
-    turnStartedAt:null, lastAggressor:-1, roundStartPlayer:-1, actions:[]
-  };
-
-  document.getElementById('btn-poker-reset').addEventListener('click', async () => {
-    if (!confirm('Reset the poker table? This clears all players and the current game.')) return;
-    const btn = document.getElementById('btn-poker-reset');
-    const msg = document.getElementById('poker-reset-msg');
-    btn.disabled = true;
-    msg.textContent = 'Resetting…';
-    try {
-      // Fetch current SHA
-      const r = await fetch(API + '?_=' + Date.now(), {
-        headers: { Authorization: 'Bearer ' + TOKEN, Accept: 'application/vnd.github+json' },
-        cache: 'no-store'
-      });
-      const sha = r.ok ? (await r.json()).sha : null;
-      // Write fresh state
-      const body = {
-        message: 'poker: reset table',
-        content: btoa(unescape(encodeURIComponent(JSON.stringify({ ...FRESH_STATE, updatedAt: new Date().toISOString() }, null, 2)))),
-        branch: 'main'
-      };
-      if (sha) body.sha = sha;
-      const w = await fetch(API, {
-        method: 'PUT',
-        headers: { Authorization: 'Bearer ' + TOKEN, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
-      });
-      if (!w.ok) throw new Error(w.status);
-      msg.textContent = 'Table reset ✓';
-      setTimeout(() => { msg.textContent = ''; }, 3000);
-    } catch(e) {
-      msg.textContent = 'Reset failed: ' + e.message;
-    } finally {
-      btn.disabled = false;
-    }
-  });
-})();
-</script>
+  <h1>this is a free website</h1>
 </body>
 </html>
